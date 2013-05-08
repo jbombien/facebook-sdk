@@ -408,10 +408,8 @@ def auth_url(app_id, canvas_url, perms=None, state=None):
     return url + urllib.urlencode(kvps)
 
 def get_app_access_token(app_id, app_secret):
-    warnings.warn("deprecated", DeprecationWarning)
     return GraphAPI().get_app_access_token(app_id, app_secret)
 
 def get_access_token_from_code(code, redirect_uri, app_id, app_secret):
-    warnings.warn("deprecated", DeprecationWarning)
     return GraphAPI().get_access_token_from_code(
         code, redirect_uri, app_id, app_secret)
