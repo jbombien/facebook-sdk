@@ -36,9 +36,6 @@ import urllib
 import hashlib
 import hmac
 import base64
-import warnings
-
-
 import requests
 
 # Find a JSON parser
