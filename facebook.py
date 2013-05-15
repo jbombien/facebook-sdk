@@ -193,7 +193,15 @@ class GraphAPI(object):
         """
         return self.request("fql", {"q": query})
 
+    def graph_search(self, query):
+        """ GraphSearch query
 
+        example query: {"q": "pagename", "type": "place", "center": "0,0", "distance": "500"}
+
+        """
+        return self.request("search", query)["data"]
+        
+        
     def get_app_access_token(self, app_id, app_secret):
         """Get the access_token for the app.
 
@@ -289,8 +297,7 @@ class GraphAPI(object):
             raise GraphAPIError('Maintype was not text, image, or querystring')
 
         if result and isinstance(result, dict) and result.get("error"):
-            raise GraphAPIError(result["error"]["type"],
-                                result["error"]["message"])
+            raise GraphAPIError(result)
         return result
 
 
